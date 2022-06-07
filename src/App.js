@@ -1,14 +1,15 @@
-import "./main.css";
+import { useState } from "react";
 import TaskColumn from "./components/taskColumn/TaskColumn";
 import TaskGroup from "./components/taskGroup/TaskGroup";
 import Task from "./components/task/Task";
+import "./main.css";
+import Sidebar from "./sidebar/Sidebar";
 
 function App() {
+  const [taskGroup, setTaskGroup] = useState();
   return (
-    <div>
-      <nav>
-        <h1>Tasker</h1>
-      </nav>
+    <>
+      <Sidebar />
       <TaskGroup>
         <TaskColumn>
           <Task title={"task1"}>Do laundry</Task>
@@ -27,7 +28,7 @@ function App() {
         </TaskColumn>
       </TaskGroup>
       <footer></footer>
-    </div>
+    </>
   );
 }
 

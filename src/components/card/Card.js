@@ -1,5 +1,5 @@
 import styles from "./Card.module.css";
-function Card({ children }) {
-  return <div className={styles.card}>{children}</div>;
+function Card({ className, children }) {
+  return <div className={`${styles.card} ${className ? className : ""}`}>{children}</div>;
 }
 export default Card;

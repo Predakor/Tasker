@@ -1,6 +1,23 @@
-.taskGroup {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
+.container {
+  display: flex;
+  flex-direction: column;
+  gap: 2%;
+
+  width: 100%;
+  padding: 2%;
 }
 .title {
+  font-size: var(--font-size);
+  width: fit-content;
+
+  cursor: default;
+  transition: 0.3s;
+}
+.title:hover {
+  opacity: 0.7;
+  transition: 0.3s;
+}
+.columns {
+  display: flex;
+  gap: 2%;
 }
