@@ -1,0 +1,8 @@
+.collumn {
+  display: flex;
+  flex-flow: row wrap;
+  gap: 1%;
+}
+.title {
+  font-size: var(--font-size);
+}
