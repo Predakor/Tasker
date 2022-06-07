@@ -1,22 +1,16 @@
 import Card from "../card/Card";
 import Task from "../task/Task";
+import Title from "../title/Title.js";
 import styles from "./taskColumn.module.css";
 
-let tasks = [
-  { id: 1, title: "Do dishes", descr: "", status: "new" },
-  { id: 2, title: "Touch grass", descr: "walk outside", status: "started" },
-  { id: 3, title: "Finish app", descr: "stop being lazy", status: "ended" },
-];
-
-function taskColumn({ children }) {
+function TaskColumn({ data }) {
+  const { name, tasks } = data;
   return (
     <Card>
-      <h3>Collumn Title</h3>
+      <Title columnData={data} />
       <div>
         {tasks.map((task) => (
-          <Task title={task.title} key={task.id}>
-            {task.descr}
-          </Task>
+          <Task data={task} key={task.id} />
         ))}
       </div>
 
@@ -28,4 +22,4 @@ function taskColumn({ children }) {
     </Card>
   );
 }
-export default taskColumn;
+export default TaskColumn;

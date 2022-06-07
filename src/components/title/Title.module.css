@@ -1,0 +1,13 @@
+.textarea {
+  background: none;
+  border: none;
+
+  color: var(--secondary-color);
+  font-size: var(--font-size);
+  resize: none;
+}
+.textarea:focus-visible {
+  background-color: var(--primary-color);
+
+  outline: none;
+}

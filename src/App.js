@@ -1,32 +1,15 @@
 import { useState } from "react";
-import TaskColumn from "./components/taskColumn/TaskColumn";
-import TaskGroup from "./components/taskGroup/TaskGroup";
-import Task from "./components/task/Task";
-import "./main.css";
 import Sidebar from "./sidebar/Sidebar";
+import TaskGroup from "./components/taskGroup/TaskGroup";
+import groups from "./utils/dummyData.json";
+import "./main.css";
 
 function App() {
-  const [taskGroup, setTaskGroup] = useState();
+  const [activeTaskGroup, setActiveTaskGroup] = useState(groups[0]);
   return (
     <>
       <Sidebar />
-      <TaskGroup>
-        <TaskColumn>
-          <Task title={"task1"}>Do laundry</Task>
-          <Task title={"task2"}>touch grass</Task>
-          <Task title={"task3"}>finish this app</Task>
-        </TaskColumn>
-        <TaskColumn>
-          <Task title={"task1"}>Do laundry</Task>
-          <Task title={"task2"}>touch grass</Task>
-          <Task title={"task3"}>finish this app</Task>
-        </TaskColumn>
-        <TaskColumn>
-          <Task title={"task1"}>Do laundry</Task>
-          <Task title={"task2"}>touch grass</Task>
-          <Task title={"task3"}>finish this app</Task>
-        </TaskColumn>
-      </TaskGroup>
+      <TaskGroup group={activeTaskGroup} />
       <footer></footer>
     </>
   );
