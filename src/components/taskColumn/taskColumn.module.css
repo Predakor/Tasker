@@ -1,8 +1,7 @@
-.collumn {
+.taskList {
   display: flex;
-  flex-flow: row wrap;
+  flex-flow: column nowrap;
   gap: 1%;
-}
-.title {
-  font-size: var(--font-size);
+
+  margin-bottom: 5%;
 }

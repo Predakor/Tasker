@@ -1,6 +1,7 @@
 .container {
   display: flex;
-  padding: 2%;
+  align-items: center;
+  gap: 1%;
 }
 
 .input,
@@ -13,17 +14,19 @@
   background-color: var(--primary-color-transparent);
 
   width: 80%;
+  padding: 1%;
+  border-radius: 1rem;
 
-  font-size: var(--font-size-small);
+  font-size: var(--font-size);
   color: var(--secondary-color);
 }
 .button {
   background-color: var(--accent-color);
 
-  padding: 1%;
   border-radius: 0.5em;
+  padding: 1%;
 
-  font-size: var(--font-size);
+  font-size: var(--font-size-big);
   cursor: pointer;
   transition: 0.5s;
 }

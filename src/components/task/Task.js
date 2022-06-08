@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { FiCircle, FiCheckCircle, FiDelete } from "react-icons/fi";
 import styles from "./Task.module.css";
 
 function Task({ data }) {
@@ -18,12 +19,12 @@ function Task({ data }) {
       <p onClick={showInfo} className={isDone ? styles.done : ""}>
         {name}
       </p>
-      <div>
-        <button onClick={toggleTaskState}>o</button>
-        <button disabled={!isDone} onClick={toggleTaskState}>
-          x
-        </button>
-      </div>
+
+      {isDone ? (
+        <FiCheckCircle className={`${styles.icon} ${styles.appear}`} onClick={toggleTaskState} />
+      ) : (
+        <FiCircle className={styles.icon} onClick={toggleTaskState} />
+      )}
     </div>
   );
 }

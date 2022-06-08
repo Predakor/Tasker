@@ -1,5 +1,5 @@
 import styles from "./InputAdd.module.css";
-
+import { FiChevronRight } from "react-icons/fi";
 function InputAdd({ placeholder, add }) {
   function keyHandler(e) {
     if (e.key !== "Enter") return;
@@ -12,13 +12,11 @@ function InputAdd({ placeholder, add }) {
       <input
         className={styles.input}
         type="text"
-        placeholder={"add"}
+        placeholder={placeholder}
         maxLength="24"
         onKeyDown={keyHandler}
       />
-      <button className={styles.button} onClick={add}>
-        +
-      </button>
+      <FiChevronRight className={styles.button} onClick={add} />
     </div>
   );
 }

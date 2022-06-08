@@ -1,6 +1,7 @@
 import Card from "../card/Card";
 import Task from "../task/Task";
 import Title from "../title/Title.js";
+import InputAdd from "../inputAdd/InputAdd";
 import styles from "./taskColumn.module.css";
 
 function TaskColumn({ data }) {
@@ -8,17 +9,13 @@ function TaskColumn({ data }) {
   return (
     <Card>
       <Title columnData={data} />
-      <div>
+      <div className={styles.taskList}>
         {tasks.map((task) => (
           <Task data={task} key={task.id} />
         ))}
       </div>
 
-      <div className="taskInject">
-        <label htmlFor="addTaskInput"></label>
-        <input type="text" id="addTaskInput" />
-        <button onClick={() => console.log("add  task")}>+</button>
-      </div>
+      <InputAdd placeholder={"add task"} />
     </Card>
   );
 }
