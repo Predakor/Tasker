@@ -3,8 +3,9 @@
   justify-content: space-between;
   align-items: center;
 
-  font-size: var(--font-size);
   padding: 0;
+
+  font-size: var(--font-size-small);
   cursor: pointer;
   transition: 0.3s;
 }

@@ -1,7 +1,9 @@
 .taskList {
   display: flex;
   flex-flow: column nowrap;
+  justify-content: space-between;
   gap: 1%;
 
   margin-bottom: 5%;
+  overflow-y: auto;
 }

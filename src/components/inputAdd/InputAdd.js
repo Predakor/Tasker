@@ -1,10 +1,12 @@
 import styles from "./InputAdd.module.css";
 import { FiChevronRight } from "react-icons/fi";
-function InputAdd({ placeholder, add }) {
+import { useRef } from "react";
+function InputAdd({ placeholder, addTask }) {
+  const inputRef = useRef();
   function keyHandler(e) {
     if (e.key !== "Enter") return;
     e.target.blur();
-    add(e.target.value);
+    addTask(e.target.value);
   }
 
   return (
@@ -15,8 +17,9 @@ function InputAdd({ placeholder, add }) {
         placeholder={placeholder}
         maxLength="24"
         onKeyDown={keyHandler}
+        ref={inputRef}
       />
-      <FiChevronRight className={styles.button} onClick={add} />
+      <FiChevronRight className={styles.button} onClick={() => addTask(inputRef.current.value)} />
     </div>
   );
 }

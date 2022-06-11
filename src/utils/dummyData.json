@@ -27,26 +27,7 @@
             },
             {
                 "name": "Work",
-                "tasks": [
-                    {
-                        "id": 0,
-                        "name": "name",
-                        "descr": "description opional",
-                        "isDone": false
-                    },
-                    {
-                        "id": 1,
-                        "name": "do laundry",
-                        "descr": "description opional",
-                        "isDone": false
-                    },
-                    {
-                        "id": 2,
-                        "name": "touch grass",
-                        "descr": "description opional",
-                        "isDone": false
-                    }
-                ]
+                "tasks": []
             },
             {
                 "name": "School",
