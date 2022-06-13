@@ -1,56 +1,51 @@
 [
     {
-        "name": "Tasks",
-        "columns": [
+        "name": "Home",
+        "tasks": [
             {
-                "name": "Home",
-                "tasks": [
-                    {
-                        "id": 0,
-                        "name": "name",
-                        "descr": "description opional",
-                        "isDone": false
-                    },
-                    {
-                        "id": 1,
-                        "name": "do laundry",
-                        "descr": "description opional",
-                        "isDone": false
-                    },
-                    {
-                        "id": 2,
-                        "name": "touch grass",
-                        "descr": "description opional",
-                        "isDone": false
-                    }
-                ]
+                "id": 0,
+                "name": "name",
+                "descr": "description opional",
+                "isDone": false
             },
             {
-                "name": "Work",
-                "tasks": []
+                "id": 1,
+                "name": "do laundry",
+                "descr": "description opional",
+                "isDone": false
             },
             {
-                "name": "School",
-                "tasks": [
-                    {
-                        "id": 0,
-                        "name": "name",
-                        "descr": "description opional",
-                        "isDone": false
-                    },
-                    {
-                        "id": 1,
-                        "name": "do laundry",
-                        "descr": "description opional",
-                        "isDone": false
-                    },
-                    {
-                        "id": 2,
-                        "name": "touch grass",
-                        "descr": "description opional",
-                        "isDone": false
-                    }
-                ]
+                "id": 2,
+                "name": "touch grass",
+                "descr": "description opional",
+                "isDone": false
+            }
+        ]
+    },
+    {
+        "name": "Work",
+        "tasks": []
+    },
+    {
+        "name": "School",
+        "tasks": [
+            {
+                "id": 0,
+                "name": "name",
+                "descr": "description opional",
+                "isDone": false
+            },
+            {
+                "id": 1,
+                "name": "do laundry",
+                "descr": "description opional",
+                "isDone": false
+            },
+            {
+                "id": 2,
+                "name": "touch grass",
+                "descr": "description opional",
+                "isDone": false
             }
         ]
     }

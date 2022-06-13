@@ -1,21 +1,21 @@
 import styles from "./GroupList.module.css";
 import InputAdd from "../inputAdd/InputAdd";
-function GroupList({ groups }) {
+function GroupList({ lists }) {
   return (
     <div className={styles.groupList}>
-      <h3 className={styles.title}>Groups</h3>
-      {groups.columns.map((group) => (
-        <GroupItem group={group} key={group.name} />
+      <h3 className={styles.title}>Lists</h3>
+      {lists.map((list) => (
+        <GroupItem list={list} key={list.name} />
       ))}
       <InputAdd />
     </div>
   );
 }
 
-function GroupItem({ group }) {
+function GroupItem({ list }) {
   return (
     <div className={styles.groupItem}>
-      <p>{group.name}</p>
+      <p>{list.name}</p>
       <div className={styles.amount}>3</div>
     </div>
   );

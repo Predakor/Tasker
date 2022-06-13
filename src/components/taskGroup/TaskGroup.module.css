@@ -1,12 +1,16 @@
 .container {
-  display: flex;
-  flex-direction: column;
-  gap: 2%;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: auto 1fr;
+  align-items: stretch;
 
+  row-gap: 5%;
   width: 100%;
   padding: 2%;
 }
 .title {
+  grid-column: span 2;
+
   font-size: var(--font-size);
   width: fit-content;
 
@@ -17,12 +21,10 @@
   opacity: 0.7;
   transition: 0.3s;
 }
-.columns {
+
+.column {
   display: flex;
   flex-flow: row wrap;
   justify-content: flex-start;
   align-content: flex-start;
-  gap: 2%;
-
-  height: 100%;
 }

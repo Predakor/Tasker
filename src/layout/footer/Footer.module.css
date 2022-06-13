@@ -1,0 +1,14 @@
+.bottom {
+  display: flex;
+  justify-content: center;
+  gap: 5%;
+}
+.icon {
+  font-size: var(--font-size);
+  transition: 0.5s;
+}
+.icon:hover {
+  color: var(--accent-color);
+  opacity: 0.7;
+  transition: 0.3s;
+}
