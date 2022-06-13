@@ -1,13 +1,12 @@
 import GroupList from "../../components/groupList/GroupList";
-import dummyData from "../../utils/dummyData.json";
 import Footer from "../footer/Footer";
 import styles from "./Sidebar.module.css";
-function Sidebar() {
+function Sidebar({ addList, setActive, lists, activeList }) {
   return (
     <div className={styles.sidebar}>
       <h2 className={styles.title}>Tasker</h2>
 
-      <GroupList lists={dummyData} />
+      <GroupList lists={lists} addList={addList} active={activeList} setActive={setActive} />
 
       {/* <SettingsGroup></SettingsGroup> */}
 

@@ -23,7 +23,7 @@ function TaskColumn({ tasks, setTasks }) {
         ))}
       </div>
 
-      <InputAdd placeholder={"add task"} addTask={addTask} />
+      <InputAdd placeholder={"add task"} onSubmit={addTask} />
     </Card>
   );
 }

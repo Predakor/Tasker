@@ -5,10 +5,18 @@ import groups from "./utils/dummyData.json";
 import "./main.css";
 
 function App() {
-  const [activeList, setActiveList] = useState(groups[0]);
+  const [lists, setLists] = useState(groups);
+  const [activeList, setActiveList] = useState(lists[0]);
+
+  function addList(listName) {
+    setLists([...lists, { name: listName, tasks: [] }]);
+  }
+  function setActive(index) {
+    setActiveList(lists[index]);
+  }
   return (
     <>
-      <Sidebar />
+      <Sidebar lists={lists} activeList={activeList} setActive={setActive} addList={addList} />
       <TaskGroup list={activeList} />
     </>
   );

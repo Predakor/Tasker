@@ -1,7 +1,8 @@
-import styles from "./InputAdd.module.css";
-import { FiChevronRight } from "react-icons/fi";
 import { useRef } from "react";
-function InputAdd({ placeholder, addTask }) {
+import { FiChevronRight } from "react-icons/fi";
+import styles from "./InputAdd.module.css";
+
+function InputAdd({ placeholder, onSubmit }) {
   const inputRef = useRef();
 
   function submitHandler(e) {
@@ -11,9 +12,9 @@ function InputAdd({ placeholder, addTask }) {
       console.warn("task name is to short ");
       return;
     }
+    onSubmit(input.value);
     input.blur();
     input.value = "";
-    addTask(input.value);
   }
 
   return (
