@@ -1,0 +1,72 @@
+.container {
+  display: flex;
+  flex-flow: column nowrap;
+
+  gap: 2%;
+
+  max-height: 100%;
+  padding: 3%;
+
+  overflow-y: auto;
+}
+.flexRow {
+  display: flex;
+  flex-flow: row nowrap;
+  gap: 2%;
+}
+
+.headerTask {
+  font-size: var(--font-size);
+  flex-grow: 1;
+}
+
+.subTasks {
+}
+.descr {
+  background-color: var(--primary-color);
+
+  min-height: 25%;
+  margin-top: auto;
+  padding: 2%;
+
+  border-radius: 0.5em;
+  box-shadow: var(--dark-shadow);
+  overflow-wrap: break-word;
+  overflow-y: auto;
+}
+.descr:empty::before {
+  content: attr(placeholder);
+}
+.descr:focus {
+  border: none;
+  outline: none;
+}
+.descr > div {
+  height: auto;
+}
+
+.button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  background-color: var(--accent-color);
+  box-shadow: var(--dark-shadow);
+
+  padding: 2%;
+  border-radius: 50%;
+
+  transition: color 0.5s;
+}
+
+.button:active {
+  opacity: 1;
+  transition: opacity 0.3s;
+  background-color: var(--primary-color);
+}
+
+@media (max-width: 576px) {
+  .container {
+    display: none;
+  }
+}

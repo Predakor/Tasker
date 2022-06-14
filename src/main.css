@@ -29,17 +29,32 @@ body {
   font-size: var(--font-size);
   color: var(--secondary-color);
 }
-a {
-  text-decoration: none;
-  font-size: var(--font-size-small);
-  color: var(--secondary-color);
-}
+
 button,
-input {
+input,
+a {
+  background: none;
   outline: none;
   border: none;
-  background: none;
+
+  font-size: var(--font-size);
+  color: var(--secondary-color);
+
+  text-decoration: none;
+  cursor: pointer;
 }
+
+button {
+  padding: 2%;
+  border-radius: 50%;
+}
+button:hover,
+input:hover,
+a:hover {
+  opacity: 0.7;
+  transition: 0.3s;
+}
+
 #root {
   display: flex;
   gap: 1%;

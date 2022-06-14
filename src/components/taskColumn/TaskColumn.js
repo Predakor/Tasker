@@ -3,7 +3,7 @@ import Task from "../task/Task";
 import InputAdd from "../inputAdd/InputAdd";
 import styles from "./taskColumn.module.css";
 
-function TaskColumn({ tasks, setTasks }) {
+function TaskColumn({ tasks, setTasks, setSelectedTask }) {
   function addTask(taskName) {
     const newID = tasks.length > 0 ? tasks.at(-1).id + 1 : 0;
     const task = {
@@ -19,7 +19,7 @@ function TaskColumn({ tasks, setTasks }) {
     <Card className={styles.column}>
       <div className={styles.taskList}>
         {tasks.map((task) => (
-          <Task data={task} key={task.id} />
+          <Task data={task} onClick={setSelectedTask} key={task.id} />
         ))}
       </div>
 

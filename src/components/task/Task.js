@@ -1,30 +1,26 @@
 import { useState } from "react";
-import { FiCircle, FiCheckCircle, FiDelete } from "react-icons/fi";
+import { FiCircle, FiCheckCircle } from "react-icons/fi";
 import styles from "./Task.module.css";
 
-function Task({ data }) {
+function Task({ data, onClick, className }) {
   const [taskState, setTaskState] = useState(data.isDone);
-  const { name, descr, isDone } = data;
+  const { id, name, isDone } = data;
 
   function toggleTaskState() {
     data.isDone = !taskState;
     setTaskState(!taskState);
   }
-  function showInfo() {
-    console.log(descr, isDone);
-  }
 
   return (
-    <div className={styles.task}>
-      <p onClick={showInfo} className={isDone ? styles.done : ""}>
-        {name}
-      </p>
-
+    <div
+      className={`${styles.task} ${className ? className : ""}`}
+      onClick={() => onClick && onClick(id)}>
       {isDone ? (
-        <FiCheckCircle className={`${styles.icon} ${styles.appear}`} onClick={toggleTaskState} />
+        <FiCheckCircle className={styles.appear} onClick={toggleTaskState} />
       ) : (
-        <FiCircle className={styles.icon} onClick={toggleTaskState} />
+        <FiCircle onClick={toggleTaskState} />
       )}
+      <p className={isDone ? styles.done : ""}>{name}</p>
     </div>
   );
 }
