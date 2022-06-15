@@ -1,37 +1,30 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import Card from "../card/Card";
 import TaskColumn from "../taskColumn/TaskColumn";
 import TaskInfo from "../taskInfo/TaskInfo";
+import InputAdd from "../inputAdd/InputAdd";
 import styles from "./TaskGroup.module.css";
 
-function TaskGroup({ list }) {
-  const [tasks, setTasks] = useState(list.tasks);
+function TaskGroup({ list, addTask }) {
   const [selectedTask, setSelectedTask] = useState();
-
-  useEffect(() => {
-    setTasks(list.tasks);
-  }, [list]);
+  const { tasks } = list;
 
   function setActive(id) {
-    tasks.forEach((task) => {
-      if (task.id === id) {
-        setSelectedTask(task);
-        return;
-      }
-    });
+    for (const task of tasks) {
+      if (task.id === id) return setSelectedTask(task);
+    }
   }
+
   return (
     <main className={styles.container}>
       <Card className={styles.title}>
         <h2>{list.name}</h2>
       </Card>
 
-      <TaskColumn
-        className={styles.container}
-        tasks={tasks}
-        setTasks={setTasks}
-        setSelectedTask={setActive}
-      />
+      <TaskColumn className={styles.container} tasks={tasks} setSelectedTask={setActive}>
+        <InputAdd placeholder={"add task"} onSubmit={addTask} />
+      </TaskColumn>
+
       <TaskInfo className={styles.container} task={selectedTask} />
     </main>
   );

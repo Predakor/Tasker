@@ -17,11 +17,6 @@ function TaskInfo({ task }) {
     { name: "open door", isDone: false },
     { name: "go outside", isDone: false },
     { name: "touch grass", isDone: false },
-    { name: "open door", isDone: false },
-    { name: "go outside", isDone: false },
-    { name: "touch grass", isDone: false },
-    { name: "open door", isDone: false },
-    { name: "go outside", isDone: false },
   ];
   return (
     <Card className={styles.container}>

@@ -1,20 +1,9 @@
 import Card from "../card/Card";
 import Task from "../task/Task";
-import InputAdd from "../inputAdd/InputAdd";
+
 import styles from "./taskColumn.module.css";
 
-function TaskColumn({ tasks, setTasks, setSelectedTask }) {
-  function addTask(taskName) {
-    const newID = tasks.length > 0 ? tasks.at(-1).id + 1 : 0;
-    const task = {
-      id: newID,
-      name: taskName,
-      descr: "description opional",
-      isDone: false,
-    };
-    setTasks([...tasks, task]);
-  }
-
+function TaskColumn({ tasks, setSelectedTask, children }) {
   return (
     <Card className={styles.column}>
       <div className={styles.taskList}>
@@ -22,8 +11,7 @@ function TaskColumn({ tasks, setTasks, setSelectedTask }) {
           <Task data={task} onClick={setSelectedTask} key={task.id} />
         ))}
       </div>
-
-      <InputAdd placeholder={"add task"} onSubmit={addTask} />
+      {children}
     </Card>
   );
 }

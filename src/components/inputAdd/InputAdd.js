@@ -9,11 +9,9 @@ function InputAdd({ placeholder, onSubmit }) {
     e.preventDefault();
     const input = inputRef.current;
     if (input.value.length < 3) {
-      console.warn("task name is to short ");
-      return;
+      return console.warn("task name is to short ");
     }
     onSubmit(input.value);
-    input.blur();
     input.value = "";
   }
 
