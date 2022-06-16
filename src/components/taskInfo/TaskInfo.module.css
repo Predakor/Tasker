@@ -1,13 +1,14 @@
 .container {
   display: flex;
   flex-flow: column nowrap;
+  justify-content: space-between;
 
-  gap: 2%;
-
-  max-height: 100%;
   padding: 3%;
 
   overflow-y: auto;
+}
+.group {
+  min-height: 25%;
 }
 .flexRow {
   display: flex;
@@ -20,29 +21,8 @@
   flex-grow: 1;
 }
 
-.subTasks {
-}
-.descr {
-  background-color: var(--primary-color);
-
-  min-height: 25%;
-  margin-top: auto;
-  padding: 2%;
-
-  border-radius: 0.5em;
-  box-shadow: var(--dark-shadow);
-  overflow-wrap: break-word;
-  overflow-y: auto;
-}
-.descr:empty::before {
-  content: attr(placeholder);
-}
-.descr:focus {
-  border: none;
-  outline: none;
-}
-.descr > div {
-  height: auto;
+.deadlineContainer {
+  min-height: 15%;
 }
 
 .button {

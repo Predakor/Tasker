@@ -1,0 +1,47 @@
+.container {
+  position: relative;
+
+  min-height: 25%;
+}
+
+.descr,
+.hiddenIput {
+  width: 100%;
+
+  padding: 2%;
+  border-radius: var(--border-radius);
+
+  font-size: var(--font-size-small);
+  font-family: inherit;
+
+  overflow-wrap: break-word;
+  word-wrap: break-word;
+}
+
+.descr {
+  min-height: 100%;
+
+  background-color: var(--primary-color);
+
+  border: none;
+  box-shadow: var(--dark-shadow);
+
+  resize: none;
+  overflow: hidden;
+  transition: height 0.1s;
+}
+.descr:focus {
+  border: none;
+  outline: none;
+}
+
+.hiddenIput {
+  position: absolute;
+  left: 0;
+  top: -10%;
+
+  height: calc(fit-content + 1em);
+  opacity: 0;
+  z-index: -1;
+  user-select: none;
+}

@@ -1,7 +1,9 @@
 import Card from "../card/Card";
 import Task from "../task/Task";
 import InputAdd from "../inputAdd/InputAdd";
-import { FiEdit, FiAlertCircle } from "react-icons/fi";
+import Deadline from "./deadline/Deadline";
+import Description from "./description/Description";
+import { FiAlertCircle } from "react-icons/fi";
 import styles from "./TaskInfo.module.css";
 
 function warn() {
@@ -26,33 +28,35 @@ function TaskInfo({ task }) {
         <button className={styles.button} onClick={warn}>
           <FiAlertCircle />
         </button>
-        <button className={styles.button} onClick={warn}>
-          <FiEdit />
-        </button>
       </div>
 
-      <div className={styles.subTasks}>
-        <h3>Steps</h3>
+      <DetailsGroup className={styles.deadlineContainer} title="Deadline">
+        <Deadline
+          deadline={deadline}
+          onDateChange={(t) => {
+            console.log(t);
+          }}
+        />
+      </DetailsGroup>
+
+      <DetailsGroup title="Steps">
         {steps?.map((subTask) => (
           <Task data={subTask} />
         ))}
         <InputAdd onSubmit={warn} />
-      </div>
+      </DetailsGroup>
 
-      <form>
-        <label htmlFor="deadline">deadline </label>
-        <input type="date" id="deadline" defaultValue={deadline} onVolumeChange={warn} />
-        <p>x days left</p>
-      </form>
-
-      <textarea
-        className={styles.descr}
-        aria-label="write note here it will be autosaved"
-        placeholder="click me to add description"
-        defaultValue={descr}
-        onChange={warn}
-      />
+      <Description />
     </Card>
+  );
+}
+
+function DetailsGroup({ title, children, className }) {
+  return (
+    <div className={`${className} ${styles.group}`}>
+      <h3>{title}</h3>
+      {children}
+    </div>
   );
 }
 
