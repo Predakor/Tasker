@@ -1,0 +1,17 @@
+.buttonContainer {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20% 5%;
+}
+.button {
+  background-color: var(--primary-color);
+
+  border-radius: var(--border-radius);
+
+  font-size: var(--font-size-small);
+}
+.container {
+  background-color: var(--primary-color);
+  padding: 2%;
+  border-radius: 0.5em;
+}
