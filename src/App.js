@@ -1,7 +1,7 @@
 import { useState } from "react";
 import Sidebar from "./layout/sidebar/Sidebar";
 import TaskGroup from "./components/taskGroup/TaskGroup";
-import groups from "./utils/dummyData.json";
+import groups from "./utils/dummyData";
 import { createList, createTask, createStep } from "./utils/todos";
 import "./main.css";
 
@@ -13,7 +13,7 @@ function App() {
     setLists((prevList) => [...prevList, createList(listName)]);
   }
 
-  function updateActiveList(newList, target) {
+  function updateList(newList, target) {
     setLists((prevLists) => {
       if (!target) target = prevLists[active].name;
       return prevLists.map((list) => {
@@ -24,8 +24,9 @@ function App() {
 
   function addTask(taskName) {
     const newTask = createTask(taskName);
-    const newList = { ...lists[active], tasks: [...lists[active].tasks, newTask] };
-    updateActiveList(newList);
+    const list = lists[active];
+    const newList = { ...list, tasks: [...list.tasks, newTask] };
+    updateList(newList);
   }
 
   return (
