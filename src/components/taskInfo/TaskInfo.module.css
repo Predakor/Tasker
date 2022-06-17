@@ -1,8 +1,7 @@
 .container {
   display: flex;
   flex-flow: column nowrap;
-  justify-content: space-between;
-
+  gap: 5%;
   padding: 3%;
 
   overflow-y: auto;
@@ -30,15 +29,17 @@
   justify-content: center;
   align-items: center;
 
-  background-color: var(--accent-color);
+  background-color: var(--primary-color);
+
   box-shadow: var(--dark-shadow);
-
   padding: 2%;
-  border-radius: 50%;
 
+  font-size: var(--font-size);
   transition: color 0.5s;
 }
-
+.active {
+  background-color: var(--accent-color);
+}
 .button:active {
   opacity: 1;
   transition: opacity 0.3s;
