@@ -14,7 +14,8 @@ function Deadline({ deadline, onDateChange }) {
         <RemindButton onClick={() => {}}>Custom</RemindButton>
       </div>
     );
-  const { monthName, dayName, hours, minutes } = toObject(deadline);
+
+  const { month, monthName, day, dayName, hours, minutes } = toObject(deadline);
   return (
     <div className={styles.container}>
       <p onClick={openCalendar}>{`${monthName} ${dayName} ${hours}:${minutes}`}</p>

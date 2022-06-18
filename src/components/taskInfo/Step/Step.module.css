@@ -1,0 +1,26 @@
+.container {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 2%;
+
+  padding: 1%;
+
+  font-size: var(--font-size-small);
+}
+
+.input {
+  background: none;
+  box-shadow: none;
+}
+.input:hover {
+  cursor: pointer;
+}
+
+.input:focus {
+  cursor: text;
+}
+
+.new {
+  color: var(--medium-emphasis);
+}
