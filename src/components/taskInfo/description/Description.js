@@ -7,6 +7,8 @@ function Description({ onBlur, value }) {
   const fakeInputRef = useRef();
 
   useEffect(() => {
+    if (!input || input === value) return;
+
     const target = fakeInputRef.current;
     const paddings = 2 * parseInt(getComputedStyle(target).padding);
     const totalContentHeight = Math.floor(target.scrollHeight - paddings);
