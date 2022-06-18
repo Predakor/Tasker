@@ -29,10 +29,19 @@ function App() {
     updateList(newList);
   }
 
+  function editTask(editedTask) {
+    const list = lists[active];
+    const updatedTasks = list.tasks.map((task) => {
+      return task.id === editedTask.id ? editedTask : task;
+    });
+    const newList = { ...list, tasks: updatedTasks };
+    updateList(newList);
+  }
+
   return (
     <>
       <Sidebar lists={lists} setActive={setActive} addList={addList} />
-      <TaskGroup list={lists[active]} addTask={addTask} />
+      <TaskGroup list={lists[active]} addTask={addTask} editTask={editTask} />
     </>
   );
 }

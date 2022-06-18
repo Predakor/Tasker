@@ -5,13 +5,12 @@ import TaskInfo from "../taskInfo/TaskInfo";
 import InputAdd from "../inputAdd/InputAdd";
 import styles from "./TaskGroup.module.css";
 
-function TaskGroup({ list, addTask }) {
-  const [selectedTask, setSelectedTask] = useState();
+function TaskGroup({ list, addTask, editTask }) {
+  const [active, setActive] = useState();
   const { tasks } = list;
-
-  function setActive(id) {
-    for (const task of tasks) {
-      if (task.id === id) return setSelectedTask(task);
+  function setActiveTask(id) {
+    for (let i in tasks) {
+      if (tasks[i].id === id) return setActive(i);
     }
   }
 
@@ -21,11 +20,15 @@ function TaskGroup({ list, addTask }) {
         <h2>{list.name}</h2>
       </Card>
 
-      <TaskColumn className={styles.container} tasks={tasks} setSelectedTask={setActive}>
+      <TaskColumn
+        className={styles.container}
+        tasks={tasks}
+        setSelectedTask={setActiveTask}
+        editTask={editTask}>
         <InputAdd placeholder={"add task"} onSubmit={addTask} />
       </TaskColumn>
 
-      <TaskInfo className={styles.container} task={selectedTask} />
+      <TaskInfo className={styles.container} task={tasks[active]} editTask={editTask} />
     </main>
   );
 }

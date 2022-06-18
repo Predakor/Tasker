@@ -8,9 +8,8 @@ function InputAdd({ placeholder, onSubmit }) {
   function submitHandler(e) {
     e.preventDefault();
     const input = inputRef.current;
-    if (input.value.length < 3) {
-      return console.warn("task name is to short ");
-    }
+    if (input.value.length < 3) return;
+
     onSubmit(input.value);
     input.value = "";
   }

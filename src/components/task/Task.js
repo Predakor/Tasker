@@ -1,8 +1,8 @@
 import { useState } from "react";
-import { FiCircle, FiCheckCircle } from "react-icons/fi";
+import StatusIcon from "../StatusIcon/StatusIcon";
 import styles from "./Task.module.css";
 
-function Task({ data, onClick, className }) {
+function Task({ data, onClick, className = "" }) {
   const [taskState, setTaskState] = useState(data.isDone);
   const { id, name, isDone } = data;
 
@@ -12,14 +12,8 @@ function Task({ data, onClick, className }) {
   }
 
   return (
-    <div
-      className={`${styles.task} ${className ? className : ""}`}
-      onClick={() => onClick && onClick(id)}>
-      {isDone ? (
-        <FiCheckCircle className={styles.appear} onClick={toggleTaskState} />
-      ) : (
-        <FiCircle onClick={toggleTaskState} />
-      )}
+    <div className={`${styles.task} ${className}`} onClick={() => onClick && onClick(id)}>
+      <StatusIcon className={styles.appear} status={taskState} onClick={toggleTaskState} />
       <p className={isDone ? styles.done : ""}>{name}</p>
     </div>
   );
