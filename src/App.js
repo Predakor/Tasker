@@ -40,7 +40,7 @@ function App() {
 
   return (
     <>
-      <Sidebar lists={lists} setActive={setActive} addList={addList} />
+      <Sidebar lists={lists} addList={addList} active={active} setActive={setActive} />
       <TaskGroup list={lists[active]} addTask={addTask} editTask={editTask} />
     </>
   );

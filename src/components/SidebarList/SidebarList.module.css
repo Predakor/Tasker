@@ -1,0 +1,42 @@
+.container {
+  display: flex;
+  flex-flow: column nowrap;
+}
+
+.list {
+  display: flex;
+  gap: 10%;
+  padding: 5% 10%;
+
+  font-size: var(--font-size-small);
+  cursor: pointer;
+  transition: 0.3s;
+}
+.list:hover {
+  background-color: var(--primary-color);
+  transition: background-color 0.3s;
+  transition: color 0.3s;
+}
+.notifications {
+}
+.active {
+  color: var(--accent-color);
+}
+.active .notifications {
+  color: var(--accent-color);
+}
+
+.tasksCount {
+  width: calc(1.5 * var(--font-size-small));
+  padding: 5%;
+  border-radius: 50%;
+  background-color: var(--primary-color);
+
+  text-align: center;
+  transition: background-color 0.3s, color 0.3s;
+}
+.active .tasksCount {
+  background-color: var(--accent-color);
+  color: var(--high-emphasis);
+  transition: background-color 0.5s, color 0.3s;
+}
