@@ -1,9 +1,9 @@
 import { useState } from "react";
-import Sidebar from "./layout/sidebar/Sidebar";
 import TaskGroup from "./components/taskGroup/TaskGroup";
-import groups from "./utils/dummyData";
-import { createList, createTask, createStep } from "./utils/todos";
+import Sidebar from "./layout/sidebar/Sidebar";
 import "./main.css";
+import groups from "./utils/dummyData";
+import { createList, createTask } from "./utils/todos";
 
 function App() {
   const [lists, setLists] = useState(groups);
@@ -40,7 +40,12 @@ function App() {
 
   return (
     <>
-      <Sidebar lists={lists} addList={addList} active={active} setActive={setActive} />
+      <Sidebar
+        lists={lists}
+        addList={addList}
+        active={active}
+        setActive={setActive}
+      />
       <TaskGroup list={lists[active]} addTask={addTask} editTask={editTask} />
     </>
   );
