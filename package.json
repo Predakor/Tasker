@@ -6,7 +6,8 @@
   "scripts": {
     "dev": "vite",
     "build": "vite build",
-    "serve": "vite preview"
+    "serve": "vite preview",
+    "deploty": "vite build "
   },
   "dependencies": {
     "react": "^18.1.0",
