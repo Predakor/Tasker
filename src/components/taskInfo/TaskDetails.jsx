@@ -12,32 +12,43 @@ function TaskInfo({ task, editTask }) {
 
   const { name, important, completed, deadline, steps, descr } = task;
 
-  function addStep(newStep) {
+  const updateTask = (updates) => {
+    editTask({ ...task, ...updates });
+  };
+
+  const addStep = (newStep) => {
     newStep = createStep(newStep);
     const newSteps = [...steps, newStep];
-    editTask({ ...task, steps: newSteps });
-  }
+    updateTask({ steps: newSteps });
+  };
 
-  function editStep(editedStep) {
-    const newSteps = steps.map((step) => {
-      return step.id === editedStep.id ? editedStep : step;
-    });
-    editTask({ ...task, steps: newSteps });
-  }
-  function changeStatus() {
-    editTask({ ...task, completed: !completed });
-  }
-  function changeDeadline(newDealine) {
-    editTask({ ...task, deadline: newDealine });
-  }
-  function changeDescription(newDescr) {
-    editTask({ ...task, descr: newDescr });
-  }
+  const editStep = (editedStep) => {
+    const newSteps = steps.map((step) =>
+      step.id === editedStep.id ? editedStep : step
+    );
+    updateTask({ steps: newSteps });
+  };
+
+  const changeStatus = () => {
+    updateTask({ completed: !completed });
+  };
+
+  const changeDeadline = (newDeadline) => {
+    updateTask({ deadline: newDeadline });
+  };
+
+  const changeDescription = (newDescr) => {
+    updateTask({ descr: newDescr });
+  };
 
   return (
     <Card className={styles.container}>
       <div className={styles.flexRow}>
-        <Task data={task} className={styles.headerTask} />
+        <Task
+          task={task}
+          changeTask={updateTask}
+          className={styles.headerTask}
+        />
 
         <button className={styles.button} onClick={changeStatus}>
           <FiAlertCircle />

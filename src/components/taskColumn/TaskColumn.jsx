@@ -8,7 +8,7 @@ function TaskColumn({ tasks, setSelectedTask, children }) {
     <Card className={styles.column}>
       <div className={styles.taskList}>
         {tasks.map((task) => (
-          <Task data={task} onClick={setSelectedTask} key={task.id} />
+          <Task task={task} onClick={setSelectedTask} key={task.id} />
         ))}
       </div>
       {children}

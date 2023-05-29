@@ -1,34 +1,41 @@
 import { useState } from "react";
 import Card from "../card/Card";
-import TaskColumn from "../taskColumn/TaskColumn";
-import TaskInfo from "../taskInfo/TaskInfo";
 import InputAdd from "../inputAdd/InputAdd";
+import TaskColumn from "../taskColumn/TaskColumn";
+import TaskDetails from "../taskInfo/TaskDetails";
 import styles from "./TaskGroup.module.css";
 
 function TaskGroup({ list, addTask, editTask }) {
-  const [active, setActive] = useState();
-  const { tasks } = list;
-  function setActiveTask(id) {
-    for (let i in tasks) {
-      if (tasks[i].id === id) return setActive(i);
+  const { tasks, name } = list;
+  const [selectedTask, setSelectedTask] = useState();
+
+  const selectTaskHandler = (id) => {
+    const selectedTask = tasks.find((task) => task.id === id);
+    if (selectedTask) {
+      setSelectedTask(selectedTask);
     }
-  }
+  };
 
   return (
     <main className={styles.container}>
       <Card className={styles.title}>
-        <h2>{list.name}</h2>
+        <h2>{name}</h2>
       </Card>
 
       <TaskColumn
         className={styles.container}
         tasks={tasks}
-        setSelectedTask={setActiveTask}
-        editTask={editTask}>
+        setSelectedTask={selectTaskHandler}
+        editTask={editTask}
+      >
         <InputAdd placeholder={"add task"} onSubmit={addTask} />
       </TaskColumn>
 
-      <TaskInfo className={styles.container} task={tasks[active]} editTask={editTask} />
+      <TaskDetails
+        className={styles.container}
+        task={selectedTask}
+        editTask={editTask}
+      />
     </main>
   );
 }

@@ -1,5 +1,5 @@
 import { useState } from "react";
-import TaskGroup from "./components/taskGroup/TaskGroup";
+import TaskGroup from "./components/TaskGroup/TaskGroup";
 import Sidebar from "./layout/sidebar/Sidebar";
 import "./main.css";
 import groups from "./utils/dummyData";
@@ -9,34 +9,32 @@ function App() {
   const [lists, setLists] = useState(groups);
   const [active, setActive] = useState(0);
 
-  function addList(listName) {
+  const addList = (listName) => {
     setLists((prevList) => [...prevList, createList(listName)]);
-  }
+  };
 
-  function updateList(newList, target) {
+  const updateList = (newList, target) => {
     setLists((prevLists) => {
-      if (!target) target = prevLists[active].name;
-      return prevLists.map((list) => {
-        return list.name === target ? newList : list;
-      });
+      target = target || prevLists[active].name;
+      return prevLists.map((list) => (list.name === target ? newList : list));
     });
-  }
+  };
 
-  function addTask(taskName) {
+  const addTask = (taskName) => {
+    const activeList = lists[active];
     const newTask = createTask(taskName);
-    const list = lists[active];
-    const newList = { ...list, tasks: [...list.tasks, newTask] };
+    const newList = { ...activeList, tasks: [...activeList.tasks, newTask] };
     updateList(newList);
-  }
+  };
 
-  function editTask(editedTask) {
-    const list = lists[active];
-    const updatedTasks = list.tasks.map((task) => {
-      return task.id === editedTask.id ? editedTask : task;
-    });
-    const newList = { ...list, tasks: updatedTasks };
+  const editTask = (editedTask) => {
+    const activeList = lists[active];
+    const updatedTasks = activeList.tasks.map((task) =>
+      task.id === editedTask.id ? editedTask : task
+    );
+    const newList = { ...activeList, tasks: updatedTasks };
     updateList(newList);
-  }
+  };
 
   return (
     <>
