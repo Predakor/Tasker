@@ -4,9 +4,7 @@ import viteSvgr from "vite-plugin-svgr";
 
 export default defineConfig(() => {
   return {
-    build: {
-      outDir: "build",
-    },
+    base: "/tasker/",
     plugins: [react(), viteSvgr()],
   };
 });
