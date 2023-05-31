@@ -1,19 +1,17 @@
 import { useState } from "react";
+import { TaskDetails } from "../Task";
+import TaskColumn from "../TaskColumn/TaskColumn";
 import Card from "../card/Card";
-import InputAdd from "../inputAdd/InputAdd";
-import TaskColumn from "../taskColumn/TaskColumn";
-import TaskDetails from "../taskInfo/TaskDetails";
-import styles from "./TaskGroup.module.css";
+import styles from "./CurrentList.module.css";
 
 function TaskGroup({ list, addTask, editTask }) {
   const { tasks, name } = list;
-  const [selectedTask, setSelectedTask] = useState();
+  const [selectedTaskId, setSelectedTaskId] = useState();
+
+  const selectedTask = tasks.find((task) => task.id === selectedTaskId);
 
   const selectTaskHandler = (id) => {
-    const selectedTask = tasks.find((task) => task.id === id);
-    if (selectedTask) {
-      setSelectedTask(selectedTask);
-    }
+    setSelectedTaskId(id);
   };
 
   return (
@@ -23,13 +21,11 @@ function TaskGroup({ list, addTask, editTask }) {
       </Card>
 
       <TaskColumn
-        className={styles.container}
         tasks={tasks}
-        setSelectedTask={selectTaskHandler}
         editTask={editTask}
-      >
-        <InputAdd placeholder={"add task"} onSubmit={addTask} />
-      </TaskColumn>
+        addTask={addTask}
+        selectTaskHandler={selectTaskHandler}
+      />
 
       <TaskDetails
         className={styles.container}

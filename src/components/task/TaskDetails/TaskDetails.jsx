@@ -1,24 +1,23 @@
-import Card from "../card/Card";
-import Task from "../task/Task";
-import Deadline from "./deadline/Deadline";
-import StepList from "./StepList/StepList";
-import Description from "./description/Description";
-import { createStep } from "../../utils/todos";
 import { FiAlertCircle } from "react-icons/fi";
+import { createStep } from "../../../utils/todos";
+import Task from "../../Task/Task";
+import Card from "../../card/Card";
+import Description from "./Description/Description";
+import StepList from "./Step/StepList";
 import styles from "./TaskInfo.module.css";
+import Deadline from "./deadline/Deadline";
 
 function TaskInfo({ task, editTask }) {
   if (!task) return <OpenTaskHint />;
 
-  const { name, important, completed, deadline, steps, descr } = task;
+  const { completed, deadline, steps, descr } = task;
 
   const updateTask = (updates) => {
     editTask({ ...task, ...updates });
   };
 
   const addStep = (newStep) => {
-    newStep = createStep(newStep);
-    const newSteps = [...steps, newStep];
+    const newSteps = [...steps, createStep(newStep)];
     updateTask({ steps: newSteps });
   };
 

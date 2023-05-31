@@ -1,6 +1,6 @@
 import { useState } from "react";
-import TaskGroup from "./components/TaskGroup/TaskGroup";
-import Sidebar from "./layout/sidebar/Sidebar";
+import CurrentList from "./components/CurrentList/CurrentList";
+import { Sidebar } from "./layout";
 import "./main.css";
 import groups from "./utils/dummyData";
 import { createList, createTask } from "./utils/todos";
@@ -32,8 +32,7 @@ function App() {
     const updatedTasks = activeList.tasks.map((task) =>
       task.id === editedTask.id ? editedTask : task
     );
-    const newList = { ...activeList, tasks: updatedTasks };
-    updateList(newList);
+    updateList({ ...activeList, tasks: updatedTasks });
   };
 
   return (
@@ -44,7 +43,7 @@ function App() {
         active={active}
         setActive={setActive}
       />
-      <TaskGroup list={lists[active]} addTask={addTask} editTask={editTask} />
+      <CurrentList list={lists[active]} addTask={addTask} editTask={editTask} />
     </>
   );
 }

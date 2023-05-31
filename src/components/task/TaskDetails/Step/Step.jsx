@@ -1,5 +1,5 @@
 import { useState } from "react";
-import StatusIcon from "../../StatusIcon/StatusIcon";
+import StatusIcon from "../../../StatusIcon/StatusIcon";
 import styles from "./Step.module.css";
 
 function Step({ name = "", completed, onSubmit, onStatusChange }) {

@@ -1,17 +1,17 @@
 import { FiGithub, FiMail, FiLinkedin } from "react-icons/fi";
-import styles from "./Footer.module.css";
+import styles from "../Layout.module.css";
 
 function Footer() {
   return (
     <footer className={styles.bottom}>
       <a href="https://github.com/Predakor/tasker">
-        <FiGithub className={styles.icon} />
+        <FiGithub className={"font-md"} />
       </a>
       <a href="mailto:patrykbusko@gmail.com?subject=business">
-        <FiMail className={styles.icon} />
+        <FiMail className={"font-md"} />
       </a>
       <a href="https://github.com/Predakor/tasker">
-        <FiLinkedin className={styles.icon} />
+        <FiLinkedin className={"font-md"} />
       </a>
     </footer>
   );

@@ -1,16 +1,25 @@
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@500&display=swap");
 :root {
-  --primary-color: rgb(36, 36, 36);
-  --secondary-color: rgb(230, 230, 230);
-  --accent-color: rgb(118, 159, 205);
-  --primary-color-transparent: rgba(18, 18, 18, var(--background-opacity));
-  --secondary-color-transparent: rgba(240, 240, 240, var(--background-opacity));
+  --primary-color: 36, 36, 36;
+  --secondary-color: 230, 230, 230;
+  --accent-color: 118, 159, 205;
+  --neutral-color: 255, 255, 255;
+  --base-color: 18, 18, 18;
 
-  --background-opacity: 1;
+  --background-opacity: 0.9;
+  --primary-color-transparent: rgba(
+    var(--primary-color),
+    var(--background-opacity)
+  );
+  --secondary-color-transparent: rgba(
+    var(--secondary-color),
+    var(--background-opacity)
+  );
+  --base-color-transparent: rgba(var(--base-color), var(--background-opacity));
 
-  --high-emphasis: rgba(255, 255, 255, 0.87);
-  --medium-emphasis: rgba(255, 255, 255, 0.6);
-  --low-emphasis: rgba(255, 255, 255, 0.38);
+  --high-emphasis: rgba(var(--neutral-color), 0.87);
+  --medium-emphasis: rgba(var(--neutral-color), 0.6);
+  --low-emphasis: rgba(var(--neutral-color), 0.38);
 
   --font-size-small: clamp(1rem, 1em, 1vw);
   --font-size: clamp(1.5rem, 1.5em, 2vw);
@@ -21,7 +30,9 @@
   --border-radius: 0.5em;
 }
 
-* {
+*,
+::before,
+::after {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
@@ -30,8 +41,6 @@ body {
   background-image: url(../background.jpg);
   background-size: cover;
   background-repeat: no-repeat;
-
-  height: 100vh;
 
   font-family: "Poppins", sans-serif;
   font-size: var(--font-size);
@@ -48,7 +57,6 @@ button,
 input,
 a,
 textarea {
-  outline: none;
   border: none;
 
   padding: 2%;
@@ -83,19 +91,40 @@ a:hover {
   opacity: 0.7;
   transition: 0.3s;
 }
-
 ::-webkit-scrollbar-thumb {
   background-color: var(--primary-color-transparent);
   border-radius: var(--border-radius);
 }
 ::-webkit-scrollbar {
-  background-color: var(--primary-color);
   width: 0.5vw;
+  background-color: var(--primary-color);
   border-radius: var(--border-radius);
 }
 #root {
+  min-height: 100vh;
   display: flex;
+  align-items: stretch;
   gap: 1%;
 
   height: 100%;
+}
+
+.font-big {
+  font-size: var(--font-size-big);
+}
+.font-md {
+  font-size: var(--font-size);
+}
+.font-small {
+  font-size: var(--font-size-small);
+}
+
+.font-light- {
+  color: var(--high-emphasis);
+}
+.font-netural {
+  color: var(--medium-emphasis);
+}
+.font-dark {
+  color: var(--low-emphasis);
 }

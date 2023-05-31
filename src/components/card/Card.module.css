@@ -1,8 +1,7 @@
 .card {
-  background-color: var(--primary-color-transparent);
-  backdrop-filter: blur(10px);
-
-  padding: 1%;
   border-radius: 1em;
   box-shadow: var(--dark-shadow);
+  background-color: var(--base-color-transparent);
+  padding: 0.25em;
+  backdrop-filter: blur(10px);
 }

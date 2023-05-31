@@ -1,5 +1,5 @@
 import styles from "./Deadline.module.css";
-import { today, nextDay, nextWeek, toObject } from "../../../utils/time";
+import { today, nextDay, nextWeek, toObject } from "../../../../utils/time";
 
 function Deadline({ deadline, onDateChange }) {
   function openCalendar() {
@@ -9,8 +9,12 @@ function Deadline({ deadline, onDateChange }) {
     return (
       <div className={styles.buttonContainer}>
         <RemindButton onClick={() => onDateChange(today())}>Today</RemindButton>
-        <RemindButton onClick={() => onDateChange(nextDay())}>Next Day</RemindButton>
-        <RemindButton onClick={() => onDateChange(nextWeek())}>Next Week</RemindButton>
+        <RemindButton onClick={() => onDateChange(nextDay())}>
+          Next Day
+        </RemindButton>
+        <RemindButton onClick={() => onDateChange(nextWeek())}>
+          Next Week
+        </RemindButton>
         <RemindButton onClick={() => {}}>Custom</RemindButton>
       </div>
     );
@@ -18,7 +22,9 @@ function Deadline({ deadline, onDateChange }) {
   const { month, monthName, day, dayName, hours, minutes } = toObject(deadline);
   return (
     <div className={styles.container}>
-      <p onClick={openCalendar}>{`${monthName} ${dayName} ${hours}:${minutes}`}</p>
+      <p
+        onClick={openCalendar}
+      >{`${monthName} ${dayName} ${hours}:${minutes}`}</p>
     </div>
   );
 }

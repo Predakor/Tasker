@@ -1,17 +1,20 @@
+import { TaskList } from "../Task";
 import Card from "../card/Card";
-import Task from "../task/Task";
+import InputAdd from "../InputAdd/InputAdd";
+import styles from "./TaskColumn.module.css";
 
-import styles from "./taskColumn.module.css";
-
-function TaskColumn({ tasks, setSelectedTask, children }) {
+function TaskColumn({ tasks, selectTaskHandler, editTask, addTask }) {
   return (
     <Card className={styles.column}>
       <div className={styles.taskList}>
-        {tasks.map((task) => (
-          <Task task={task} onClick={setSelectedTask} key={task.id} />
-        ))}
+        <TaskList
+          tasks={tasks}
+          editTask={editTask}
+          setSelectedTask={selectTaskHandler}
+          className={styles.container}
+        />
       </div>
-      {children}
+      <InputAdd placeholder={"add task"} onSubmit={addTask} />
     </Card>
   );
 }

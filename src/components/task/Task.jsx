@@ -5,7 +5,7 @@ function Task({ task, changeTask, onClick, className = "" }) {
   const { id, name, completed } = task;
 
   const toggleTaskState = () => {
-    changeTask({ completed: !completed });
+    changeTask({ ...task, completed: !completed });
   };
 
   return (

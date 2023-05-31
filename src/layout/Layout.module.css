@@ -1,0 +1,26 @@
+.bottom {
+  display: flex;
+  justify-content: center;
+  gap: 5%;
+}
+.sidebar {
+  display: flex;
+  flex-flow: column nowrap;
+  gap: 1em;
+
+  width: 20%;
+  padding: 0.5em 1em;
+
+  background-color: var(--base-color-transparent);
+  backdrop-filter: blur(10px);
+  box-shadow: 1px 1px 1px 1px var(--base-color-transparent);
+}
+.listsContainer {
+  flex-grow: 1;
+}
+
+@media screen and (max-width: 600px) {
+  .sidebar {
+    display: none;
+  }
+}
