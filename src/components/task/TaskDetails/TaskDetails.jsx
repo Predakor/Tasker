@@ -1,7 +1,7 @@
 import { FiAlertCircle } from "react-icons/fi";
 import { createStep } from "../../../utils/todos";
 import Task from "../../Task/Task";
-import Card from "../../card/Card";
+import Card from "../../Card/Card";
 import Description from "./Description/Description";
 import StepList from "./Step/StepList";
 import styles from "./TaskInfo.module.css";

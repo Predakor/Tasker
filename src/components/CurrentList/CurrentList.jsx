@@ -1,7 +1,7 @@
 import { useState } from "react";
+import Card from "../Card/Card";
 import { TaskDetails } from "../Task";
 import TaskColumn from "../TaskColumn/TaskColumn";
-import Card from "../card/Card";
 import styles from "./CurrentList.module.css";
 
 function TaskGroup({ list, addTask, editTask }) {

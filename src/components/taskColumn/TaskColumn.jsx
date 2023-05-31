@@ -1,5 +1,5 @@
 import { TaskList } from "../Task";
-import Card from "../card/Card";
+import Card from "../Card/Card";
 import InputAdd from "../InputAdd/InputAdd";
 import styles from "./TaskColumn.module.css";
 
