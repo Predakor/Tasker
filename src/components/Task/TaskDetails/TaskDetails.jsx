@@ -5,7 +5,7 @@ import Card from "../../Card/Card";
 import Description from "./Description/Description";
 import StepList from "./Step/StepList";
 import styles from "./TaskInfo.module.css";
-import Deadline from "./deadline/Deadline";
+import Deadline from "./Deadline/Deadline";
 
 function TaskInfo({ task, editTask }) {
   if (!task) return <OpenTaskHint />;
