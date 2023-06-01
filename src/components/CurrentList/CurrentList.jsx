@@ -4,7 +4,7 @@ import { TaskDetails } from "../Task";
 import TaskColumn from "../TaskColumn/TaskColumn";
 import styles from "./CurrentList.module.css";
 
-function TaskGroup({ list, addTask, editTask }) {
+function TaskGroup({ list, addTask, editTask, removeTask }) {
   const { tasks, name } = list;
   const [selectedTaskId, setSelectedTaskId] = useState();
 
@@ -24,11 +24,13 @@ function TaskGroup({ list, addTask, editTask }) {
         tasks={tasks}
         editTask={editTask}
         addTask={addTask}
+        removeTask={removeTask}
         selectTaskHandler={selectTaskHandler}
+        className={styles.column}
       />
 
       <TaskDetails
-        className={styles.container}
+        className={styles.column}
         task={selectedTask}
         editTask={editTask}
       />

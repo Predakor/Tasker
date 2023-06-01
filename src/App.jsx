@@ -1,38 +1,31 @@
 import { useState } from "react";
 import CurrentList from "./components/CurrentList/CurrentList";
+import useLists from "./hooks/useLists";
 import { Sidebar } from "./layout";
 import "./main.css";
-import groups from "./utils/dummyData";
-import { createList, createTask } from "./utils/todos";
+import { createTask } from "./utils/todos";
 
 function App() {
-  const [lists, setLists] = useState(groups);
+  const [lists, { updateList, addList, removeList }] = useLists();
   const [active, setActive] = useState(0);
-
-  const addList = (listName) => {
-    setLists((prevList) => [...prevList, createList(listName)]);
-  };
-
-  const updateList = (newList, target) => {
-    setLists((prevLists) => {
-      target = target || prevLists[active].name;
-      return prevLists.map((list) => (list.name === target ? newList : list));
-    });
-  };
+  const activeList = lists[active];
 
   const addTask = (taskName) => {
-    const activeList = lists[active];
     const newTask = createTask(taskName);
     const newList = { ...activeList, tasks: [...activeList.tasks, newTask] };
-    updateList(newList);
+    updateList(newList, active);
   };
 
   const editTask = (editedTask) => {
-    const activeList = lists[active];
     const updatedTasks = activeList.tasks.map((task) =>
       task.id === editedTask.id ? editedTask : task
     );
-    updateList({ ...activeList, tasks: updatedTasks });
+    updateList({ ...activeList, tasks: updatedTasks }, active);
+  };
+
+  const removeTask = (taskID) => {
+    const filteredTasks = activeList.tasks.filter((task) => task.id !== taskID);
+    updateList({ ...activeList, tasks: filteredTasks }, active);
   };
 
   return (
@@ -43,7 +36,12 @@ function App() {
         active={active}
         setActive={setActive}
       />
-      <CurrentList list={lists[active]} addTask={addTask} editTask={editTask} />
+      <CurrentList
+        list={activeList}
+        addTask={addTask}
+        editTask={editTask}
+        removeTask={removeTask}
+      />
     </>
   );
 }

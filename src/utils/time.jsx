@@ -22,7 +22,7 @@ function addMonths(months, date = today()) {
     date.getMinutes()
   );
 }
-function toObject(date = today(), target = "default", length = "short") {
+function toObject(date = today(), target = "default", length = "long") {
   return {
     year: date.getFullYear(),
     month: date.getMonth(),

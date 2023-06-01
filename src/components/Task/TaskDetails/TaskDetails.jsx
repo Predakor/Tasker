@@ -6,7 +6,7 @@ import Description from "./Description/Description";
 import StepList from "./Step/StepList";
 import styles from "./TaskInfo.module.css";
 
-function TaskDetails({ task, editTask }) {
+function TaskDetails({ task, editTask, className }) {
   if (!task) return <OpenTaskHint />;
 
   const { completed, deadline, steps, descr } = task;
@@ -28,7 +28,7 @@ function TaskDetails({ task, editTask }) {
   };
 
   return (
-    <Card className={styles.container}>
+    <Card className={className}>
       <div className={styles.flexRow}>
         <Task
           task={task}

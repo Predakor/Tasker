@@ -23,10 +23,13 @@ function Deadline({ deadline, onDateChange }) {
     onDateChange(null);
   };
 
-  const { month, monthName, day, dayName, hours, minutes } = toObject(deadline);
+  const deadlineDate = new Date(deadline);
+  const { monthName, dayName, hours, minutes } = toObject(deadlineDate);
+  const fullMinutes = minutes < 10 ? `0${minutes}` : minutes;
+  const fullHours = hours < 10 ? `0${hours}` : hours;
   return (
     <div className={styles.deadlineContainer}>
-      <p>{`${monthName} ${dayName} ${hours}:${minutes}`}</p>
+      <p>{`${monthName} ${dayName} ${fullHours}:${fullMinutes}`}</p>
       <Button onClick={removeDeadline}>X</Button>
     </div>
   );

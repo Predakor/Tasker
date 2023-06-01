@@ -1,6 +1,7 @@
 import { useRef } from "react";
 import { FiChevronRight } from "react-icons/fi";
 import styles from "./InputAdd.module.css";
+import Button from "../Button/Button";
 
 const InputAdd = ({ placeholder, onSubmit }) => {
   const inputRef = useRef();
@@ -17,14 +18,16 @@ const InputAdd = ({ placeholder, onSubmit }) => {
   return (
     <form className={styles.container} onSubmit={submitHandler}>
       <input
-        className={styles.input}
         type="text"
-        maxLength="24"
+        className={`${styles.input}`}
         placeholder={placeholder}
-        ref={inputRef}
+        maxLength="32"
         defaultValue=""
+        ref={inputRef}
       />
-      <FiChevronRight className={styles.button} onClick={submitHandler} />
+      <Button className={styles.inputButton}>
+        <FiChevronRight className={"font-md"} onClick={submitHandler} />
+      </Button>
     </form>
   );
 };
