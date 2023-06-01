@@ -10,7 +10,6 @@ function App() {
   const [active, setActive] = useState(0);
   const activeList = lists[active] || lists.at(-1);
 
-  console.log(active);
   const addTask = (taskName) => {
     const newTask = createTask(taskName);
     const newList = { ...activeList, tasks: [...activeList.tasks, newTask] };

@@ -22,7 +22,7 @@
 .descr {
   min-height: 100%;
 
-  background-color: var(--primary-color);
+  background-color: rgb(var(--base-300));
 
   border: none;
   box-shadow: var(--dark-shadow);

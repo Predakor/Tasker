@@ -76,6 +76,12 @@ textarea {
   box-shadow: var(--dark-shadow);
 }
 
+button:has(svg) {
+  display: grid;
+  display: grid;
+  place-items: center;
+}
+
 textarea::placeholder,
 input::placeholder {
   color: var(--low-emphasis);
@@ -88,12 +94,12 @@ input::placeholder {
 }
 
 ::-webkit-scrollbar-thumb {
-  background-color: var(--primary-color-transparent);
+  background-color: rgb(var(--base-300));
   border-radius: var(--border-radius);
 }
 ::-webkit-scrollbar {
   width: 0.5vw;
-  background-color: var(--primary-color);
+  background-color: rgb(var(--base-300), 0);
   border-radius: var(--border-radius);
 }
 #root {
@@ -115,7 +121,7 @@ input::placeholder {
   font-size: var(--font-size-small);
 }
 
-.font-light- {
+.font-light {
   color: var(--high-emphasis);
 }
 .font-netural {
@@ -123,4 +129,12 @@ input::placeholder {
 }
 .font-dark {
   color: var(--low-emphasis);
+}
+
+.hide {
+  opacity: 0;
+  user-select: none;
+}
+.hide:focus {
+  opacity: 1;
 }

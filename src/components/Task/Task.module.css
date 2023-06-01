@@ -1,58 +1,47 @@
 .task {
   display: flex;
-  justify-content: start;
   align-items: center;
-  gap: 2%;
-
-  padding: 1%;
-
-  color: var(--high-emphasis);
-  font-size: var(--font-size-small);
+  flex-direction: row;
+  gap: 0.5em;
 
   cursor: pointer;
   transition: 0.3s;
 }
 .task:hover {
   background-color: rgb(50, 50, 50);
-  transition: 0.3s ease-in;
+  transition: background-color 50ms ease-in;
+}
+
+.taskText {
+  position: relative;
+  color: var(--high-emphasis);
+  flex-grow: 1;
+}
+.taskText::before {
+  content: "";
+  position: absolute;
+  inset: 50% 0%;
+
+  width: 0%;
+  height: 10%;
+
+  background-color: var(--medium-emphasis);
+  transition: width 100ms ease-in;
 }
 
 .done {
-  position: relative;
-  transition: 2s;
-  color: var(--medium-emphasis);
+  color: var(--low-emphasis);
 }
-.done::after {
-  content: "";
-  position: absolute;
-  top: 50%;
-  left: 0;
-
-  background-color: var(--medium-emphasis);
-
+.done::before {
   width: 100%;
-  height: 10%;
-
-  animation: line 0.5s;
 }
 
 .appear {
-  animation: appear 0.5s ease-in;
+  animation: appear 100ms;
 }
-
 @keyframes appear {
-  0% {
+  from {
     opacity: 0;
-  }
-  100% {
-    opacity: 1;
-  }
-}
-@keyframes line {
-  0% {
-    width: 0%;
-  }
-  100% {
-    width: 100%;
+    transform: translateY(50%);
   }
 }

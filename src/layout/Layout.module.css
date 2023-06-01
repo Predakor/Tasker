@@ -1,25 +1,27 @@
-.bottom {
-  display: flex;
-  justify-content: center;
-  gap: 5%;
-}
 .sidebar {
-  display: flex;
-  flex-flow: column nowrap;
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+  padding: 0.5em 1em;
   gap: 1em;
 
+  height: 100vh;
   width: 20%;
-  padding: 0.5em 1em;
 
   background-color: var(--base-color-transparent);
   backdrop-filter: blur(10px);
   box-shadow: 1px 1px 1px 1px var(--base-color-transparent);
 }
 .listsContainer {
-  flex-grow: 1;
+  overflow-y: auto;
+  overflow-x: hidden;
 }
 
-@media screen and (max-width: 600px) {
+.bottom {
+  display: flex;
+  justify-content: center;
+  gap: 1em;
+}
+@media (max-width: 600px) {
   .sidebar {
     display: none;
   }

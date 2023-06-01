@@ -2,6 +2,10 @@
   padding: 0.5em;
   background-color: rgb(var(--base-300));
 }
+.ghost {
+  background-color: rgba(var(--base-300) 0);
+  box-shadow: none;
+}
 .active {
   background-color: rgb(var(--accent-color));
   color: rgb(var(--base-color));
