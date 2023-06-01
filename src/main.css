@@ -5,6 +5,7 @@
   --accent-color: 118, 159, 205;
   --neutral-color: 255, 255, 255;
   --base-color: 18, 18, 18;
+  --base-300: 36, 36, 36;
 
   --background-opacity: 0.9;
   --primary-color-transparent: rgba(
@@ -27,6 +28,7 @@
 
   --dark-shadow: 1px 1px 15px 1px rgb(0, 0, 0);
   --light-shadow: 1px 1px 10px 1px rgb(15, 15, 15);
+  --padding: 0.5em;
   --border-radius: 0.5em;
 }
 
@@ -58,8 +60,7 @@ input,
 a,
 textarea {
   border: none;
-
-  padding: 2%;
+  padding: var(--padding);
 
   font-size: var(--font-size-small);
   color: var(--high-emphasis);
@@ -86,11 +87,6 @@ input::placeholder {
   transition: color 0.3s, background-color 0.3s;
 }
 
-button:hover,
-a:hover {
-  opacity: 0.7;
-  transition: 0.3s;
-}
 ::-webkit-scrollbar-thumb {
   background-color: var(--primary-color-transparent);
   border-radius: var(--border-radius);

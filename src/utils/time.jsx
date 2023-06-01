@@ -13,6 +13,15 @@ function addDays(days, date = today()) {
     date.getMinutes()
   );
 }
+function addMonths(months, date = today()) {
+  return new Date(
+    date.getFullYear(),
+    date.getMonth() + months,
+    date.getDate(),
+    date.getHours(),
+    date.getMinutes()
+  );
+}
 function toObject(date = today(), target = "default", length = "short") {
   return {
     year: date.getFullYear(),
@@ -34,5 +43,8 @@ function nextDay() {
 function nextWeek() {
   return addDays(7);
 }
-export { today, nextDay, nextWeek };
+function nextMonth() {
+  return addMonths(1);
+}
+export { today, nextDay, nextWeek, nextMonth };
 export { toIsoDate, dayEnd, toObject };

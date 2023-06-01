@@ -2,32 +2,24 @@ import { useState } from "react";
 import StatusIcon from "../../../StatusIcon/StatusIcon";
 import styles from "./Step.module.css";
 
-function Step({ step, editStep, removeStep }) {
-  const { id, name, completed } = step;
-  const [input, setInput] = useState(name);
+function AddStep({ completed, onSubmit, onStatusChange }) {
+  const [input, setInput] = useState("");
 
   const submitHandler = (e) => {
     e.preventDefault();
     const text = input.trim();
-    if (text) {
-      editStep(text);
-      setInput(text);
-      return;
-    }
-    removeStep(id);
+    if (!text) return;
+    onSubmit(text);
+    setInput("");
   };
 
   const changeHandler = (e) => {
     setInput(e.target.value);
   };
 
-  const changeTaskCompletion = () => {
-    editStep({ ...step, completed: !completed });
-  };
-
   return (
     <form className={styles.container} onSubmit={submitHandler}>
-      <StatusIcon status={completed} onClick={changeTaskCompletion} />
+      <StatusIcon status={completed} onClick={onStatusChange} />
 
       <input
         type="text"
@@ -35,10 +27,10 @@ function Step({ step, editStep, removeStep }) {
         onBlur={submitHandler}
         onChange={changeHandler}
         value={input}
-        placeholder="New step"
+        placeholder="new step"
       />
     </form>
   );
 }
 
-export default Step;
+export default AddStep;

@@ -2,11 +2,11 @@ import { today } from "./time";
 
 const dummyData = [
   {
-    name: "Home",
+    name: "Toturial",
     tasks: [
       {
         id: 0,
-        name: "cleaning",
+        name: "Add your first task",
         completed: false,
         important: false,
         deadline: null,
@@ -15,22 +15,38 @@ const dummyData = [
       },
       {
         id: 1,
-        name: "shopping",
+        name: "Edit this task",
         completed: false,
         important: false,
         deadline: today(),
         steps: [
-          { id: 0, name: "go out", completed: true },
-          { id: 1, name: "find shop", completed: false },
-          { id: 2, name: "buy broceres", completed: false },
+          { id: 0, name: "add extra step", completed: true },
+          { id: 1, name: "change deadline to tommorow", completed: false },
+          { id: 2, name: "mark task as important", completed: false },
+          { id: 3, name: "change this task description", completed: false },
+          { id: 4, name: "mark all steps as done", completed: false },
         ],
-        descr: "shopping list",
+        descr: "Step by step toturial to task managment",
+      },
+      {
+        id: "2",
+        name: "Mark all tasks done",
+        completed: false,
+        important: false,
+        deadline: null,
+        steps: [],
+        descr: "",
+      },
+      {
+        id: "3",
+        name: "Add new list",
+        completed: false,
+        important: false,
+        deadline: null,
+        steps: [],
+        descr: "",
       },
     ],
-  },
-  {
-    name: "Work",
-    tasks: [],
   },
 ];
 export default dummyData;

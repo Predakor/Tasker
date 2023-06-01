@@ -6,7 +6,6 @@ import styles from "./Step.module.css";
 function StepList({ steps, updateTask }) {
   const addStep = (newStep) => {
     const newSteps = [...steps, createStep(newStep)];
-    console.log({ steps, newSteps });
     updateTask({ steps: newSteps });
   };
 

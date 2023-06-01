@@ -1,31 +1,18 @@
 import { FiAlertCircle } from "react-icons/fi";
-import { createStep } from "../../../utils/todos";
-import Task from "../../Task/Task";
 import Card from "../../Card/Card";
+import Task from "../../Task/Task";
+import Deadline from "./Deadline/Deadline";
 import Description from "./Description/Description";
 import StepList from "./Step/StepList";
 import styles from "./TaskInfo.module.css";
-import Deadline from "./Deadline/Deadline";
 
-function TaskInfo({ task, editTask }) {
+function TaskDetails({ task, editTask }) {
   if (!task) return <OpenTaskHint />;
 
   const { completed, deadline, steps, descr } = task;
 
   const updateTask = (updates) => {
     editTask({ ...task, ...updates });
-  };
-
-  const addStep = (newStep) => {
-    const newSteps = [...steps, createStep(newStep)];
-    updateTask({ steps: newSteps });
-  };
-
-  const editStep = (editedStep) => {
-    const newSteps = steps.map((step) =>
-      step.id === editedStep.id ? editedStep : step
-    );
-    updateTask({ steps: newSteps });
   };
 
   const changeStatus = () => {
@@ -59,7 +46,7 @@ function TaskInfo({ task, editTask }) {
       </DetailsGroup>
 
       <DetailsGroup title="Steps">
-        <StepList steps={steps} editStep={editStep} addStep={addStep} />
+        <StepList steps={steps} updateTask={updateTask} />
       </DetailsGroup>
 
       <Description value={descr} onBlur={changeDescription} />
@@ -83,4 +70,4 @@ function OpenTaskHint() {
   );
 }
 
-export default TaskInfo;
+export default TaskDetails;

@@ -1,39 +1,34 @@
 import styles from "./Deadline.module.css";
-import { today, nextDay, nextWeek, toObject } from "../../../../utils/time";
+import {
+  today,
+  nextDay,
+  nextWeek,
+  toObject,
+  nextMonth,
+} from "../../../../utils/time";
+import Button from "../../../Button/Button";
 
 function Deadline({ deadline, onDateChange }) {
-  function openCalendar() {
-    console.warn("not implemented");
-  }
   if (!deadline)
     return (
       <div className={styles.buttonContainer}>
-        <RemindButton onClick={() => onDateChange(today())}>Today</RemindButton>
-        <RemindButton onClick={() => onDateChange(nextDay())}>
-          Next Day
-        </RemindButton>
-        <RemindButton onClick={() => onDateChange(nextWeek())}>
-          Next Week
-        </RemindButton>
-        <RemindButton onClick={() => {}}>Custom</RemindButton>
+        <Button onClick={() => onDateChange(today())}>Today</Button>
+        <Button onClick={() => onDateChange(nextDay())}>Next Day</Button>
+        <Button onClick={() => onDateChange(nextWeek())}>Next Week</Button>
+        <Button onClick={() => onDateChange(nextMonth())}>Next Month</Button>
       </div>
     );
 
+  const removeDeadline = () => {
+    onDateChange(null);
+  };
+
   const { month, monthName, day, dayName, hours, minutes } = toObject(deadline);
   return (
-    <div className={styles.container}>
-      <p
-        onClick={openCalendar}
-      >{`${monthName} ${dayName} ${hours}:${minutes}`}</p>
+    <div className={styles.deadlineContainer}>
+      <p>{`${monthName} ${dayName} ${hours}:${minutes}`}</p>
+      <Button onClick={removeDeadline}>X</Button>
     </div>
-  );
-}
-
-function RemindButton({ onClick, children }) {
-  return (
-    <button className={styles.button} onClick={onClick}>
-      {children}
-    </button>
   );
 }
 

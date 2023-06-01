@@ -1,0 +1,12 @@
+.button {
+  padding: 0.5em;
+  background-color: rgb(var(--base-300));
+}
+.active {
+  background-color: rgb(var(--accent-color));
+  color: rgb(var(--base-color));
+}
+.button:hover {
+  opacity: 0.75;
+  transition: ease-in 200ms opacity;
+}

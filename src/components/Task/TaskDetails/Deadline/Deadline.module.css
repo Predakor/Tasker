@@ -1,13 +1,9 @@
 .buttonContainer {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  gap: 20% 5%;
+  gap: 0.5em;
 }
-.button {
-  background-color: var(--primary-color);
-}
-.container {
-  background-color: var(--primary-color);
-  padding: 2%;
-  border-radius: 0.5em;
+.deadlineContainer {
+  display: flex;
+  gap: 0.5em;
 }
