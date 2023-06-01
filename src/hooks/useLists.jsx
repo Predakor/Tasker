@@ -11,20 +11,22 @@ function useLists() {
     localStorage.setItem("lists", JSON.stringify(lists));
   }, [lists]);
 
-  const updateList = (newList, target = activeList) => {
+  const updateList = (newList, target) => {
+    console.log(newList);
     setLists((prevLists) =>
       prevLists.map((list) => (list.id === target.id ? newList : list))
     );
   };
 
   const addList = (listName) => {
-    console.log(listName);
-    setLists((prevLists) => [...prevLists, createList(listName)]);
+    const newList = createList(listName);
+    setLists((prevLists) => [...prevLists, newList]);
   };
 
   const removeList = (listID) => {
     const filteredLists = lists.filter((list) => list.id !== listID);
-    setLists((prevLists) => [...prevLists, filteredLists]);
+    console.log(filteredLists);
+    setLists([...filteredLists]);
   };
 
   const listActions = { updateList, addList, removeList };

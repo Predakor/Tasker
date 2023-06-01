@@ -1,11 +1,13 @@
+import Button from "../Button/Button";
 import styles from "./SidebarList.module.css";
 
-const SidebarList = ({ lists, activeList, setActive }) => {
+const SidebarList = ({ lists, activeList, setActive, removeList }) => {
   return (
-    <div className={styles.container}>
+    <nav className={styles.container}>
       {lists.map(({ id, name, tasks }, index) => {
         const active = index === activeList ? styles.active : "";
-        const clickHandler = () => setActive(index);
+        const clickHandler = () => setActive(id);
+        const removeHandler = () => removeList(id);
         return (
           <div
             className={`${styles.list} ${active}`}
@@ -16,10 +18,13 @@ const SidebarList = ({ lists, activeList, setActive }) => {
             <div className={styles.notifications}>
               <div className={styles.tasksCount}>{tasks.length}</div>
             </div>
+            <Button onClick={removeHandler} ghost>
+              X
+            </Button>
           </div>
         );
       })}
-    </div>
+    </nav>
   );
 };
 
