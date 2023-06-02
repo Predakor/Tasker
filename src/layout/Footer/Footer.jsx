@@ -10,7 +10,7 @@ function Footer() {
       <a href="mailto:patrykbusko@gmail.com?subject=business">
         <FiMail className={"font-md"} />
       </a>
-      <a href="https://github.com/Predakor/tasker">
+      <a href="https://www.linkedin.com/in/patryk-buśko">
         <FiLinkedin className={"font-md"} />
       </a>
     </footer>

@@ -1,20 +1,17 @@
 .container {
   display: flex;
-  align-items: stretch;
+  align-content: center;
+  width: 100%;
   gap: 0.25em;
-
-  background-color: rgb(var(--base-300));
 }
 
 .input {
+  width: 5em;
   flex-grow: 1;
-  background-color: var(--primary-color);
   box-shadow: var(--dark-shadow);
+  background-color: rgb(var(--base-300));
+  font-weight: bold;
 }
 .inputButton {
   background-color: rgb(var(--accent-color));
-}
-.button:hover {
-  opacity: 0.7;
-  transition: 0.3s;
 }

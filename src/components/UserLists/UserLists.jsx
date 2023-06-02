@@ -1,10 +1,9 @@
-import Button from "../Button/Button";
-import styles from "./SidebarList.module.css";
-import { TiDeleteOutline } from "react-icons/ti";
+import { DeleteButton } from "../Button";
+import styles from "./userLists.module.css";
 
 const SidebarList = ({ lists, activeList, setActive, removeList }) => {
   return (
-    <nav className={styles.container}>
+    <nav className={`${styles.container} font-small`}>
       {lists.map(({ id, name, tasks }, index) => {
         const active = index === activeList ? styles.active : "";
         const deleteButtonVisible = activeList === index ? "" : "hide";
@@ -16,17 +15,14 @@ const SidebarList = ({ lists, activeList, setActive, removeList }) => {
             onClick={clickHandler}
             key={id}
           >
-            <p className={styles.listName}>{name}</p>
-            <div className={styles.notifications}>
-              <div className={styles.tasksCount}>{tasks.length}</div>
-            </div>
-            <Button
+            <p data-count={tasks.length} className={styles.listName}>
+              {name}
+            </p>
+            <DeleteButton
               onClick={removeHandler}
               className={deleteButtonVisible}
-              ghost
-            >
-              <TiDeleteOutline className="font-md" />
-            </Button>
+              label={`Remove ${name} from your lists`}
+            />
           </div>
         );
       })}

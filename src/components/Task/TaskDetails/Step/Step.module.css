@@ -2,30 +2,34 @@
   display: flex;
   justify-content: flex-start;
   align-items: center;
-  gap: 2%;
-
-  padding: 1%;
+  gap: 0.25em;
+  padding: 0.25em 0.5em;
+  border-radius: 0.5em;
 
   font-size: var(--font-size-small);
 }
-
-.stepList {
-  display: flex;
-  flex-flow: column nowrap;
+.container:hover,
+.container:focus {
+  background-color: rgb(var(--base-300));
+  transition: 50ms;
 }
 
-.input {
+.step {
+  flex-grow: 1;
   background: none;
   box-shadow: none;
-}
-.input:hover {
-  cursor: pointer;
+  font-weight: 600;
 }
 
-.input:focus {
+.step:focus-visible {
+  background-color: rgb(var(--base-300));
   cursor: text;
 }
 
-.new {
+.completed {
+  text-decoration: line-through;
+  opacity: 0.8;
+}
+.newStep {
   color: var(--medium-emphasis);
 }

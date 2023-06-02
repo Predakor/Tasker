@@ -31,10 +31,6 @@
   overflow: hidden;
   transition: height 0.1s;
 }
-.descr:focus {
-  border: none;
-  outline: none;
-}
 
 .hiddenIput {
   position: absolute;

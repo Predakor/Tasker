@@ -49,5 +49,10 @@ const dummyData = [
       },
     ],
   },
+  {
+    id: "example2",
+    name: "Example list",
+    tasks: [],
+  },
 ];
 export default dummyData;

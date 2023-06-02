@@ -12,7 +12,6 @@ function useLists() {
   }, [lists]);
 
   const updateList = (newList, target) => {
-    console.log(newList);
     setLists((prevLists) =>
       prevLists.map((list) => (list.id === target.id ? newList : list))
     );
@@ -25,7 +24,10 @@ function useLists() {
 
   const removeList = (listID) => {
     const filteredLists = lists.filter((list) => list.id !== listID);
-    console.log(filteredLists);
+    if (filteredLists.length === 0) {
+      alert("Cannot remove the last list.");
+      return;
+    }
     setLists([...filteredLists]);
   };
 

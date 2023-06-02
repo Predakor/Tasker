@@ -23,7 +23,7 @@ function AddStep({ completed, onSubmit, onStatusChange }) {
 
       <input
         type="text"
-        className={styles.input}
+        className={`${styles.newStep} ${styles.step}`}
         onBlur={submitHandler}
         onChange={changeHandler}
         value={input}

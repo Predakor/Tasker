@@ -25,17 +25,18 @@ function Step({ step, editStep, removeStep }) {
     editStep({ ...step, completed: !completed });
   };
 
+  const completedStyles = step.completed ? styles.completed : "";
+
   return (
     <form className={styles.container} onSubmit={submitHandler}>
       <StatusIcon status={completed} onClick={changeTaskCompletion} />
 
       <input
         type="text"
-        className={styles.input}
+        className={`${styles.step} ${completedStyles}`}
         onBlur={submitHandler}
         onChange={changeHandler}
         value={input}
-        placeholder="New step"
       />
     </form>
   );

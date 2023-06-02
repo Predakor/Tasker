@@ -1,7 +1,7 @@
 import { useRef } from "react";
 import { FiChevronRight } from "react-icons/fi";
-import styles from "./InputAdd.module.css";
 import Button from "../Button/Button";
+import styles from "./InputAdd.module.css";
 
 const InputAdd = ({ placeholder, onSubmit }) => {
   const inputRef = useRef();

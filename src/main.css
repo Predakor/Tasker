@@ -55,6 +55,14 @@ h3 {
   color: var(--high-emphasis);
 }
 
+a {
+  transition: color 50ms, transform 250ms;
+}
+a:hover {
+  color: rgb(var(--accent-color));
+  transform: scale(1.25);
+}
+
 button,
 input,
 a,
@@ -86,12 +94,6 @@ textarea::placeholder,
 input::placeholder {
   color: var(--low-emphasis);
 }
-:focus {
-  background-color: var(--primary-color-transparent);
-  color: var(--secondary-color);
-  opacity: 1;
-  transition: color 0.3s, background-color 0.3s;
-}
 
 ::-webkit-scrollbar-thumb {
   background-color: rgb(var(--base-300));
@@ -103,12 +105,10 @@ input::placeholder {
   border-radius: var(--border-radius);
 }
 #root {
+  display: grid;
   min-height: 100vh;
-  display: flex;
   align-items: stretch;
   gap: 1%;
-
-  height: 100%;
 }
 
 .font-big {
@@ -124,17 +124,26 @@ input::placeholder {
 .font-light {
   color: var(--high-emphasis);
 }
-.font-netural {
+.font-neutral {
   color: var(--medium-emphasis);
 }
 .font-dark {
   color: var(--low-emphasis);
 }
 
+.font-warning {
+  color: rgba(255, 0, 0);
+}
 .hide {
   opacity: 0;
   user-select: none;
 }
 .hide:focus {
   opacity: 1;
+}
+
+@media (min-width: 1024px) {
+  #root {
+    grid-template-columns: minmax(auto, 20%) 1fr;
+  }
 }

@@ -1,4 +1,4 @@
-import { TiDeleteOutline } from "react-icons/ti";
+import { DeleteButton } from "../Button";
 import Button from "../Button/Button";
 import StatusIcon from "../StatusIcon/StatusIcon";
 import styles from "./Task.module.css";
@@ -14,6 +14,7 @@ function Task({ task, changeTask, removeTask, onClick, className = "" }) {
     <div
       className={`${styles.task} ${styles.appear} ${className}`}
       onClick={() => onClick && onClick(id)}
+      draggable
     >
       <Button onClick={toggleTaskState} className={styles.appear} ghost>
         <StatusIcon status={completed} className="font-md" />
@@ -22,13 +23,11 @@ function Task({ task, changeTask, removeTask, onClick, className = "" }) {
         {name}
       </p>
 
-      <Button
+      <DeleteButton
         onClick={() => removeTask(id)}
         className={completed ? "" : "hide"}
-        ghost
-      >
-        <TiDeleteOutline className="font-md" />
-      </Button>
+        label={`Remove ${name} from your tasks`}
+      />
     </div>
   );
 }

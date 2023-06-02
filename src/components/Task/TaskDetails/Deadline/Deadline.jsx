@@ -6,7 +6,7 @@ import {
   toObject,
   nextMonth,
 } from "../../../../utils/time";
-import Button from "../../../Button/Button";
+import Button, { DeleteButton } from "../../../Button";
 
 function Deadline({ deadline, onDateChange }) {
   if (!deadline)
@@ -30,7 +30,10 @@ function Deadline({ deadline, onDateChange }) {
   return (
     <div className={styles.deadlineContainer}>
       <p>{`${monthName} ${dayName} ${fullHours}:${fullMinutes}`}</p>
-      <Button onClick={removeDeadline}>X</Button>
+      <DeleteButton
+        onClick={removeDeadline}
+        label={"Remove deadline from this task"}
+      />
     </div>
   );
 }
