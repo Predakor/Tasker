@@ -48,7 +48,7 @@ Start the server
 
 ## Screenshots
 
-![App Screenshot](https://github.com/Predakor/Typer/assets/86599904/9ed3d278-a444-4ceb-aec7-b6f226bf5ee2)
+![App screenshot](https://github.com/Predakor/tasker/assets/86599904/cc6cbb93-f22f-4d26-b3b7-2246b276311f)
 
 ## Features
 
