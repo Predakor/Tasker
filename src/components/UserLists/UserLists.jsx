@@ -1,7 +1,7 @@
 import { DeleteButton } from "../Button";
 import styles from "./userLists.module.css";
 
-const SidebarList = ({ lists, activeList, setActive, removeList }) => {
+const UserLists = ({ lists, activeList, setActive, removeList }) => {
   return (
     <nav className={`${styles.container} font-small`}>
       {lists.map(({ id, name, tasks }, index) => {
@@ -30,4 +30,4 @@ const SidebarList = ({ lists, activeList, setActive, removeList }) => {
   );
 };
 
-export default SidebarList;
+export default UserLists;

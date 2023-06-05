@@ -144,6 +144,6 @@ input::placeholder {
 
 @media (min-width: 1024px) {
   #root {
-    grid-template-columns: minmax(auto, 20%) 1fr;
+    grid-template-columns: minmax(auto, 350px) 1fr;
   }
 }
