@@ -1,44 +1,28 @@
 ## Table of contents
 
-- [Installation and usage](#general-info)
-- [Technologies](#technologies)
-- [Screenshots](#creenshots)
 - [Features](#features)
+- [Technologies](#technologies)
+- [Screenshots](#screenshots)
+- [Installation and usage](#installation)
 
-# Tasker
-
-This application helps you manage your tasks more efficiently by allowing you to group them into different lists. It was originally built using Create React App, but I migrated it to Vite for improved performance and compatibility.
 
 ## Demo
 
 [Check Tasker Online](https://predakor.github.io/tasker)
 
-## Installation
+# Tasker
 
-Clone the project
+This application helps you manage your tasks more efficiently by allowing you to group them into different lists.
+## Features
 
-```bash
-  git clone https://github.com/Predakor/Typer
-```
+Here are some features that my task management system offers:
+- Ability to create multiple task lists
+- Option to add steps to a task (like a checklist)
+- Setting a deadline for a task
+- Assigning a level of importance to a task
+- Saving all tasks to local storage for easy access.
 
-Go to the project directory
-
-```bash
-  cd typer
-```
-
-Install dependencies
-
-```bash
-  npm install
-```
-
-Start the server
-
-```bash
-  npm run dev
-```
-
+    
 ## Technologies
 
 - React
@@ -48,13 +32,33 @@ Start the server
 
 ## Screenshots
 
-![App screenshot](https://github.com/Predakor/tasker/assets/86599904/cc6cbb93-f22f-4d26-b3b7-2246b276311f)
+![Screenshot 2023-06-13 at 10-44-36 Tasker](https://github.com/Predakor/tasker/assets/86599904/5b90c2f8-bf2e-4c9c-83ef-c7f299f5e7bc)
 
-## Features
+## Installation
 
-Here are some features that our task management system offers:
-- Ability to create multiple task lists
-- Option to add steps to a task (like a checklist)
-- Setting a deadline for a task
-- Assigning a level of importance to a task
-- Saving all tasks to local storage for easy access.
+Clone the project
+
+```bash
+  git clone https://github.com/Predakor/tasker
+```
+
+Go to the project directory
+
+```bash
+  cd tasker
+```
+
+Install dependencies
+
+```bash
+  pnpm install
+```
+
+Start the server
+
+```bash
+  pnpm run dev
+```
+
+
+
